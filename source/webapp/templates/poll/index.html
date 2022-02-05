@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+    <h1>Questions</h1>
+    {% for question in questions %}
+        <h3>{{ question.upper }}</h3>
+        <p><a href="{{ question.get_absolute_url }}">More...</a></p>
+        <p><a href="{% url "question_update_view" question.pk %}">Update</a></p>
+        <p><a href="{% url "question_delete_view" question.pk %}">Delete</a></p>
+    {% endfor %}
+
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+{% endblock %}

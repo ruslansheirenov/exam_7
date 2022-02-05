@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Question {{ question.pk }}{% endblock %}
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'question_add' %}">Create Question</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "question_update_view" question.pk %}">Update</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "question_delete_view" question.pk %}">Delete</a>
+    </li>
+{% endblock %}
+{% block content %}
+    <h1>{{ question.question }}</h1>
+    {% comment %} <br>
+    <h3>Комментарии</h3>
+    {% for comment in comments %}
+        <span>{{ forloop.counter }}</span>
+        <p>{{ comment.author }}</p>
+        <p>{{ comment.content }}</p>
+        <p><a href="{% url "comment_update_view" comment.pk %}">Update</a></p>
+        <p><a href="{% url "comment_delete_view" comment.pk %}">Удалить</a></p>
+    {% endfor %} {% endcomment %}
+{% endblock %}

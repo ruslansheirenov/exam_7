@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -13,7 +14,7 @@ class Poll(BaseModel):
     question = models.CharField(max_length=200, null=False, blank=False, verbose_name="Вопрос")
 
     def get_absolute_url(self):
-        return reverse('poll_view', kwargs={'pk': self.pk})
+        return reverse('question_view', kwargs={'pk': self.pk})
 
     def upper(self):
         return self.question.upper()

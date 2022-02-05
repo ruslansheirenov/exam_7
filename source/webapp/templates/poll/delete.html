@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="POST">
+    {% csrf_token %}
+        <h2>Enter the question {{ question.question }}</h2>
+        {% include 'partial/form.html' with button_text="Удалить" %}
+    </form>
+    <a href="{% url "question_view" question.pk %}">No</a>
+{% endblock %}

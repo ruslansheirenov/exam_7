@@ -17,17 +17,13 @@ class PollForm(forms.ModelForm):
                 f"Значение не может быть менее 10 символов, {question} не подходит"))
         return cleaned_data
 
-
-class ChoiceForm(forms.ModelForm):
-    class Meta:
-        model = Choice
-        fields = ("choice")
-
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=30, required=False, label="Найти")
 
 class PollDeleteForm(forms.ModelForm):
     class Meta:
         model = Poll
-        fields = ("question")
+        fields = ("question",)
 
     def clean_title(self):
         if self.instance.title != self.cleaned_data.get("question"):
