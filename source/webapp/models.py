@@ -10,10 +10,10 @@ class BaseModel(models.Model):
         abstract = True
 
 class Poll(BaseModel):
-    question = models.CharField(max_length=200, null=False, blank=False, verbose_name="Заголовок")
+    question = models.CharField(max_length=200, null=False, blank=False, verbose_name="Вопрос")
 
     def get_absolute_url(self):
-        return reverse('article_view', kwargs={'pk': self.pk})
+        return reverse('poll_view', kwargs={'pk': self.pk})
 
     def upper(self):
         return self.question.upper()
@@ -27,8 +27,8 @@ class Poll(BaseModel):
         verbose_name_plural = 'Опросы'
 
 class Choice(BaseModel):
-    choice = models.TextField(max_length=2000, verbose_name="Контент")
-    article = models.ForeignKey("webapp.Poll", on_delete=models.CASCADE,
+    choice = models.TextField(max_length=2000, verbose_name="Ответ")
+    question = models.ForeignKey("webapp.Poll", on_delete=models.CASCADE,
                                 related_name="choices",
                                 verbose_name="Опрос",
                                 )

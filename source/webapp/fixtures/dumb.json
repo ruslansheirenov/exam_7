@@ -1,0 +1,40 @@
+[
+{
+    "model": "webapp.poll",
+    "pk": 1,
+    "fields": {
+        "created_at": "2022-02-05T09:11:48.751Z",
+        "updated_at": "2022-02-05T09:11:48.751Z",
+        "question": "skdhbvklsdkls"
+    }
+},
+{
+    "model": "webapp.poll",
+    "pk": 2,
+    "fields": {
+        "created_at": "2022-02-05T09:13:48.447Z",
+        "updated_at": "2022-02-05T09:13:48.447Z",
+        "question": "2222222222"
+    }
+},
+{
+    "model": "webapp.choice",
+    "pk": 1,
+    "fields": {
+        "created_at": "2022-02-05T09:12:08.367Z",
+        "updated_at": "2022-02-05T09:13:25.028Z",
+        "choice": "lkjfiobdhlnbkd;",
+        "article": 1
+    }
+},
+{
+    "model": "webapp.choice",
+    "pk": 2,
+    "fields": {
+        "created_at": "2022-02-05T09:13:59.851Z",
+        "updated_at": "2022-02-05T09:14:07.639Z",
+        "choice": "skjfbsoiebnhosvs",
+        "article": 2
+    }
+}
+]
